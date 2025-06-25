@@ -1,6 +1,3 @@
-# Jogo-da-Memoria
-Trabalho referente ao primerio semestre do curso de Engenharia de Software na Universidade Católica de Brasília.
-
 # 🃏 Jogo da Memória Clássico
 
 Um divertido e desafiador Jogo da Memória construído com HTML, CSS e JavaScript puro. Teste sua memória virando as cartas e encontrando todos os pares!
@@ -31,9 +28,10 @@ Um divertido e desafiador Jogo da Memória construído com HTML, CSS e JavaScrip
 
 Este jogo está hospedado e pode ser acessado diretamente pelo GitHub Pages. Clique no link abaixo para jogar agora mesmo:
 
-[**Link para o Jogo da Memória**]([http://soarezzsemj.github.io./Jogo-da-Memoria])
+[**Link para o Jogo da Memória**]([https://soarezzsemj.github.io/Jogo-da-Memoria/])
 
 ---
+
 ## 🛠️ Tecnologias Utilizadas
 
 * **HTML5:** Estrutura básica do jogo.
@@ -88,5 +86,6 @@ Sinta-se à vontade para abrir issues ou pull requests se tiver sugestões de me
 5.  Abra um Pull Request.
 
 ---
+
 
 Feito com ❤️ (e um pedacinho da alma) pelo time de desenvolvimento.
