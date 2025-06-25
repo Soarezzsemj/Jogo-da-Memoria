@@ -69,14 +69,16 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 //TELA DE PARABENS
 function showCongratulationsScreen() {
-  const congratsDiv = document.createElement('div');
-  congratsDiv.classList.add('congratulations-screen');
-  congratsDiv.innerHTML = `
-    <h2>Parabéns!</h2>
-    <p>Você completou o jogo da memória!</p>
-    <button onclick="location.reload()">Jogar Novamente</button>
-  `;
-  document.body.appendChild(congratsDiv);
+  const congratsDiv = document.createElement('div');
+  congratsDiv.classList.add('congratulations-screen');
+  congratsDiv.innerHTML = `
+    <h2>Parabéns!</h2>
+    <p>Você completou o jogo da memória!</p>
+    <button onclick="location.reload()">Jogar Novamente</button>
+  `;
+  document.body.appendChild(congratsDiv);
+  // AAAAAAAAAAAAAAAAAAAAAAAAAAA ESSE NGC DEMOROU UMA DECADA PARA FUNCIONAR 
+  congratsDiv.classList.add('show');
 }
 
 //MEU DEUS O CABA VAI ENDOIDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
