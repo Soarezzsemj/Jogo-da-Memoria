@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px; /* Add some padding to prevent content from touching edges */
 }
 
 @keyframes gradientBG {
@@ -26,33 +27,42 @@ body {
 
 h1 {
   color: #f1c40f;
-  font-size: 3.5em;
+  /* Use clamp for responsive font size: min, preferred, max */
+  font-size: clamp(2em, 8vw, 3.5em);
   margin-bottom: 30px;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+  text-align: center; /* Center the title on smaller screens */
 }
 
 .memory-game {
-  width: 640px;
-  height: 640px;
-  display: flex;
-  flex-wrap: wrap;
+  width: 90vw; /* Use viewport width */
+  max-width: 640px; /* Max width for larger screens */
+  /* height: 640px; -- Removed fixed height for flexibility */
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns, equal width */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows, equal height */
+  gap: 15px; /* Spacing between cards */
   perspective: 1000px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   background-color: rgba(255, 255, 255, 0.03);
+  padding: 10px; /* Padding inside the game container */
+  /* Add aspect ratio to maintain proportions if needed, though grid handles well */
+  aspect-ratio: 4 / 3; /* Width / Height of the grid layout (4 columns, 3 rows) */
 }
 
 .memory-card {
-  width: calc(25% - 20px);
-  height: calc(33.333% - 20px);
-  margin: 10px;
+  width: 100%; /* Take full width of its grid cell */
+  height: 100%; /* Take full height of its grid cell */
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  /* Maintain aspect ratio for the card content itself */
+  aspect-ratio: 1 / 1; /* Square cards */
 }
 
 .memory-card.flip {
@@ -85,8 +95,8 @@ h1 {
 
 .front-face img,
 .back-face img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%; /* Adjust image size to fit within card with some padding */
+  max-height: 90%;
   object-fit: contain;
   aspect-ratio: 1/1;
   border-radius: 8px;
@@ -97,8 +107,7 @@ h1 {
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Tela de Parabéns 
-odiei fazer isso ):*/
+/* Congratulations Screen */
 .congratulations-screen {
   position: fixed;
   top: 0;
@@ -111,12 +120,13 @@ odiei fazer isso ):*/
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 2em;
+  font-size: 2em; /* This will be scaled by media queries below */
   text-align: center;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
   z-index: 100;
+  padding: 20px; /* Add padding for smaller screens */
 }
 
 .congratulations-screen.show {
@@ -125,20 +135,20 @@ odiei fazer isso ):*/
 }
 
 .congratulations-screen h2 {
-  font-size: 3em;
+  font-size: clamp(2em, 10vw, 3em); /* Responsive font size */
   margin-bottom: 20px;
   color: #f1c40f;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .congratulations-screen p {
-  font-size: 1.3em;
+  font-size: clamp(1em, 4vw, 1.3em); /* Responsive font size */
   margin-bottom: 30px;
 }
 
 .congratulations-screen button {
   padding: 15px 30px;
-  font-size: 1.2em;
+  font-size: clamp(1em, 4vw, 1.2em); /* Responsive font size */
   background-color: #27ae60;
   color: white;
   border: none;
@@ -151,4 +161,46 @@ odiei fazer isso ):*/
 .congratulations-screen button:hover {
   background-color: #1e8449;
   transform: translateY(-2px);
+}
+
+/* --- Media Queries for smaller screens --- */
+@media (max-width: 768px) {
+  .memory-game {
+    gap: 10px; /* Slightly less gap on smaller screens */
+  }
+
+  .front-face img,
+  .back-face img {
+    max-width: 80%; /* Make images slightly smaller to ensure fit */
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .memory-game {
+    width: 95vw; /* Take up more width on very small screens */
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .congratulations-screen h2 {
+    font-size: 2.5em; /* Further adjust for very small screens */
+  }
+
+  .congratulations-screen p {
+    font-size: 1.1em;
+  }
+
+  .congratulations-screen button {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
 }

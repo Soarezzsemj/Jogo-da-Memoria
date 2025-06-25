@@ -81,3 +81,4 @@ function showCongratulationsScreen() {
  congratsDiv.classList.add('show');
 //teste
 }
+  
