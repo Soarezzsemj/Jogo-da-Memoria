@@ -28,7 +28,7 @@ Um divertido e desafiador Jogo da Memória construído com HTML, CSS e JavaScrip
 
 Este jogo está hospedado e pode ser acessado diretamente pelo GitHub Pages. Clique no link abaixo para jogar agora mesmo:
 
-[**Link para o Jogo da Memória**]([https://soarezzsemj.github.io/Jogo-da-Memoria/])
+[**Link para o Jogo da Memória**](https://soarezzsemj.github.io/Jogo-da-Memoria/)
 
 ---
 
