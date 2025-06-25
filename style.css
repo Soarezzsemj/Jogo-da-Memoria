@@ -1,38 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
   height: 100vh;
+  background: linear-gradient(-45deg, #2C3E50, #34495E, #2C3E50);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Orbitron', sans-serif;
   display: flex;
-  background: #060AB2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  color: #f1c40f;
+  font-size: 3.5em;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
 }
 
 .memory-game {
   width: 640px;
   height: 640px;
-  margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 .memory-card {
-  width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
-  margin: 5px;
+  width: calc(25% - 20px);
+  height: calc(33.333% - 20px);
+  margin: 10px;
   position: relative;
-  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
 }
 
 .front-face,
 .back-face {
+  position: absolute;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  position: absolute;
-  border-radius: 5px;
-  background: #1C7CCC;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.back-face {
+  transform: rotateY(0deg);
+  background: linear-gradient(135deg, #2980b9, #6dd5fa);
+  border: 2px solid #1A5276;
+}
+
+.front-face img,
+.back-face img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+}
+
+.memory-card:not(.flip):hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Tela de Parabéns 
+odiei fazer isso ):*/
+.congratulations-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 100;
+}
+
+.congratulations-screen.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.congratulations-screen h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #f1c40f;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.congratulations-screen p {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+
+.congratulations-screen button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.congratulations-screen button:hover {
+  background-color: #1e8449;
+  transform: translateY(-2px);
 }
