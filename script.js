@@ -79,6 +79,7 @@ function showCongratulationsScreen() {
   document.body.appendChild(congratsDiv);
   // AAAAAAAAAAAAAAAAAAAAAAAAAAA ESSE NGC DEMOROU UMA DECADA PARA FUNCIONAR 
   congratsDiv.classList.add('show');
+//teste
 }
 
 //MEU DEUS O CABA VAI ENDOIDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
